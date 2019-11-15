@@ -1,0 +1,90 @@
+$menu-height: 80px;
+$base-color: #505050;
+$border-dark: rgba( $base-color, .5 );
+$back-img-path: "../images/backgrounds/";
+$text-size: ("lg": 1.5em, "md": 1em, "sm": .8em);
+$text-color: ('bright': #888, 'dark': #222);
+$icon-size: ("lg": 3em, "md": 2em, "sm": 1em);
+
+@each $name, $size in $icon-size {
+  .icon-#{$name} {
+    font-size: #{random(2)}em;
+  }
+}
+
+
+
+body {
+  font: 300 .9em "Lato", sans-serif;
+  color: map-get($text-color, 'dark');
+  background-color: rgb(random(255),random(255),random(255))
+}
+
+a {
+  color: $base-color;
+  text-decoration: none;
+  font-weight: 100;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  background: rgba(255,255,255,.7);
+  height: $menu-height;
+
+  img {
+    height: $menu-height;
+    margin-left: 5px;
+  }
+
+  ul {
+    margin-right: 20px;
+    margin-bottom: 0;
+
+    li {
+      list-style: none;
+      display: inline-block;
+
+      a {
+        display: block;
+        line-height: $menu-height;
+        margin: 0 5px;
+        font-size: map-get($text-size, "sm");
+
+      }
+    }
+  }
+}
+
+
+
+.hero {
+  height: 100vh;
+  background: url(#{$back-img-path}hero-back.jpg) no-repeat center / cover;
+  padding-top: $menu-height;
+
+  hr {
+    border-color: $border-dark;
+  }
+  
+  p {
+    font-size: map-get($text-size, "lg");    
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      display: inline-block
+    }
+  }
+}
